@@ -2,13 +2,16 @@ package ime.usp.br.pokemon;
 
 public class Batalha {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println("Teste 1");
-
+		EventSet batalha = new EventSet();
+		//add evento
+		//add bevento;
+		//prioridade do evento1 > prioridade do evento2
+		//	ação do evento1
+		//else
+		// ação evento2
+		
 	}
 
 }
