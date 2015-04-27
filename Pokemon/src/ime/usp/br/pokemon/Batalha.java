@@ -1,6 +1,6 @@
 package ime.usp.br.pokemon;
 
-public class Batalha {
+public class Batalha extends EventSet{
 
 	public static void main(String[] args) {
 		System.out.println("Teste 1");
