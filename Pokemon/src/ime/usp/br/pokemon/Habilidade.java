@@ -7,5 +7,7 @@ public class Habilidade {
 		nome = n;
 		dano = d;
 	}
-	
+	public String getNome(){
+		return nome;
+	}
 }
