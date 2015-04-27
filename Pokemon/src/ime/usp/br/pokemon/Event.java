@@ -31,6 +31,7 @@ public class Event {
 			System.out.println("Qual pokemon você deseja colocar em batalha?");
 			Scanner scanner = new Scanner(System.in);
 			String s = scanner.nextLine();
+			scanner.close();
 			Pokemon pokeAtual;
 			for(int i = 0; i < 6; i++){
 				pokeAtual = treinadorAlvo.getPokemon(i);
@@ -45,6 +46,7 @@ public class Event {
 			System.out.println("Qual item você deseja usar Potion(P) ou SuperPotion(S)");
 			Scanner scanner = new Scanner(System.in);
 			String s = scanner.nextLine();
+			scanner.close();
 			if (s == "P"){
 				origem.recuperaHP(60);
 			}
@@ -59,6 +61,7 @@ public class Event {
 			Scanner scanner = new Scanner(System.in);
 			String s = scanner.nextLine();
 			Habilidade habilAtual;
+			scanner.nextLine();
 			for(int i = 0; i < 4; i++){
 				habilAtual = origem.getHabilidade(i);
 				if(habilAtual.getNome().equals(s)){
@@ -67,17 +70,18 @@ public class Event {
 				if(alvo.getHP() == 0){
 					treinadorAlvo.removePokemon(alvo);
 					System.out.println("Qual pokemon você deseja colocar em batalha?");
-					Scanner scanner2 = new Scanner(System.in);
 					String d = scanner.nextLine();
+					scanner.close();
 					Pokemon pokeAtual;
 					for(int j = 0; j < 6; j++){
 						pokeAtual = treinadorAlvo.getPokemon(i);
-						if(pokeAtual.getNome().equals(s)){
+						if(pokeAtual.getNome().equals(d)){
 							treinador.pokemonAtual = pokeAtual;
 						}
 					}
 				}
 			}
+			scanner.close();
 		}
 		
 	}
