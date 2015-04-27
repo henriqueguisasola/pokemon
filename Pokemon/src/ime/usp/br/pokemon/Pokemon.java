@@ -38,5 +38,8 @@ public class Pokemon {
 		}
 		
 	}
+	public int getHP(){
+		return hp;
+	}
 	
 }

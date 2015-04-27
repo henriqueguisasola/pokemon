@@ -33,7 +33,7 @@ public class Event {
 			String s = scanner.nextLine();
 			Pokemon pokeAtual;
 			for(int i = 0; i < 6; i++){
-				pokeAtual = getPokemon(i);
+				pokeAtual = treinadorAlvo.getPokemon(i);
 				if(pokeAtual.getNome().equals(s)){
 					treinador.pokemonAtual = pokeAtual;
 				}
@@ -62,15 +62,15 @@ public class Event {
 			for(int i = 0; i < 4; i++){
 				habilAtual = origem.getHabilidade(i);
 				if(habilAtual.getNome().equals(s)){
-					alvo.tomouHabilidade(habilAtual.getDano);
+					alvo.tomouHabilidade(habilAtual.getDano());
 				}
 				if(alvo.getHP() == 0){
 					treinadorAlvo.removePokemon(alvo);
 					System.out.println("Qual pokemon você deseja colocar em batalha?");
-					Scanner scanner = new Scanner(System.in);
-					String s = scanner.nextLine();
+					Scanner scanner2 = new Scanner(System.in);
+					String d = scanner.nextLine();
 					Pokemon pokeAtual;
-					for(int i = 0; i < 6; i++){
+					for(int j = 0; j < 6; j++){
 						pokeAtual = treinadorAlvo.getPokemon(i);
 						if(pokeAtual.getNome().equals(s)){
 							treinador.pokemonAtual = pokeAtual;
