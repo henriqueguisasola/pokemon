@@ -7,6 +7,7 @@ public class Batalha {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println("Teste 1");
 
 	}
 
