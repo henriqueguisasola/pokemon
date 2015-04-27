@@ -3,8 +3,7 @@ package ime.usp.br.pokemon;
 public class Pokemon {
 	private int hp;
 	private int hpMax;
-	private int i = 0;
-	private Pokemon pokemonAtual; 
+	private int i = 0; 
 	private String nome;
 	private Habilidade[] habilidades = new Habilidade[4];
 	public Pokemon(String n, int vida){
@@ -29,6 +28,15 @@ public class Pokemon {
 	}
 	public Habilidade getHabilidade(int i){
 		return habilidades[i];
+	}
+	public void tomouHabilidade(int x){
+		if (hp - x <= 0){
+			hp = 0;
+		}
+		else{
+			hp -= x;
+		}
+		
 	}
 	
 }

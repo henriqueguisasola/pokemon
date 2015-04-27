@@ -10,4 +10,7 @@ public class Habilidade {
 	public String getNome(){
 		return nome;
 	}
+	public int getDano(){
+		return dano;
+	}
 }
