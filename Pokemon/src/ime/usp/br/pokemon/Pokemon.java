@@ -3,6 +3,7 @@ package ime.usp.br.pokemon;
 public class Pokemon {
 	private int hp;
 	private int i = 0;
+	private Pokemon pokemonAtual; 
 	private String nome;
 	private Habilidade[] habilidades = new Habilidade[4];
 	public Pokemon(String n, int vida){
