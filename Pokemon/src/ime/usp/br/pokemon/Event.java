@@ -1,6 +1,5 @@
 package ime.usp.br.pokemon;
 
-import java.util.Scanner;
 
 public class Event {
 	private int prioridade;
@@ -8,6 +7,7 @@ public class Event {
 	private Pokemon alvo;
 	private Treinador treinador;
 	private Treinador treinadorAlvo;
+	public boolean alvoVivo;
 	
 	
 	public Event(int n, Pokemon a, Pokemon b, Treinador c, Treinador d){
@@ -16,6 +16,7 @@ public class Event {
 		alvo = b;
 		treinador = c;
 		treinadorAlvo = d;
+		alvoVivo = true;
 	}
 	
 	public void action(){
@@ -28,25 +29,25 @@ public class Event {
 		
 		if(prioridade == 1){
 			//Troca pokemon
-			System.out.println("Qual pokemon você deseja colocar em batalha?");
-			Scanner scanner = new Scanner(System.in);
-			String s = scanner.nextLine();
-			scanner.close();
+			System.out.println(treinador.getNome()+" qual pokemon você deseja colocar em batalha?");
+			treinador.imprimeVivos();
+			String s = Leitura.leString();
 			Pokemon pokeAtual;
 			for(int i = 0; i < 6; i++){
-				pokeAtual = treinadorAlvo.getPokemon(i);
+				pokeAtual = treinador.getPokemon(i);
+				System.out.println(pokeAtual.getNome());
 				if(pokeAtual.getNome().equals(s)){
 					treinador.pokemonAtual = pokeAtual;
 				}
 			}			
+			System.out.println(s);
+			System.out.println(treinador.pokemonAtual.getNome());
 		}
 		
 		if(prioridade == 2){
 			//Usa poção
 			System.out.println("Qual item você deseja usar Potion(P) ou SuperPotion(S)");
-			Scanner scanner = new Scanner(System.in);
-			String s = scanner.nextLine();
-			scanner.close();
+			String s = Leitura.leString();
 			if (s == "P"){
 				origem.recuperaHP(60);
 			}
@@ -57,31 +58,36 @@ public class Event {
 		
 		if(prioridade == 3){
 			//Ataca pokemon
-			System.out.println("Qual habilidade o pokemon deve usar?");
-			Scanner scanner = new Scanner(System.in);
-			String s = scanner.nextLine();
+			System.out.println(treinador.getNome()+" - Qual habilidade o "+origem.getNome()+" deve usar?");
+			(treinador.pokemonAtual).imprimeHabil();
+			int s = Leitura.leNumero();
 			Habilidade habilAtual;
-			scanner.nextLine();
-			for(int i = 0; i < 4; i++){
-				habilAtual = origem.getHabilidade(i);
-				if(habilAtual.getNome().equals(s)){
-					alvo.tomouHabilidade(habilAtual.getDano());
-				}
-				if(alvo.getHP() == 0){
-					treinadorAlvo.removePokemon(alvo);
-					System.out.println("Qual pokemon você deseja colocar em batalha?");
-					String d = scanner.nextLine();
-					scanner.close();
+			habilAtual = origem.getHabilidade(s-1);
+			alvo.tomouHabilidade(habilAtual.getDano());
+			System.out.println(alvo.getNome()+" tomou "+habilAtual.getDano()+" de dano.");
+			if(alvo.getHP() == 0){
+				System.out.println(alvo.getNome()+" morreu.");
+				treinadorAlvo.removePokemon(alvo);
+				if(treinadorAlvo.getNum() > 0){
+					System.out.println(treinadorAlvo.getNome()+" qual pokemon você deseja colocar em batalha?");
+					treinadorAlvo.imprimeVivos();
+					String d = Leitura.leString();
 					Pokemon pokeAtual;
-					for(int j = 0; j < 6; j++){
-						pokeAtual = treinadorAlvo.getPokemon(i);
+					int j = 6;
+					while(j > 0 || alvoVivo){
+						pokeAtual = treinadorAlvo.getPokemon(j);
 						if(pokeAtual.getNome().equals(d)){
-							treinador.pokemonAtual = pokeAtual;
+							treinadorAlvo.pokemonAtual = pokeAtual;
+							alvoVivo = false;							
 						}
+						j++;
 					}
 				}
+				else{
+					System.out.println("O "+treinadorAlvo.getNome()+" esta sem pokemon!");
+					alvoVivo = false;
+				}
 			}
-			scanner.close();
 		}
 		
 	}
