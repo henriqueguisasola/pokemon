@@ -1,81 +1,82 @@
 package ime.usp.br.pokemon;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Scanner;
 
-public class Batalha extends EventSet{
+public class Batalha extends EventSet {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		Treinador trainer1 = new Treinador("Trainer1");
 		Treinador trainer2 = new Treinador("Trainer2");
 		String nome;
 		int hp;
 		int dano;
-		Scanner scanner = new Scanner(System.in);
-		for(int i = 0; i < 6; i++){
-			System.out.println("Digite o nome do "+i+"º pokemon");
-			nome = scanner.nextLine();
-			System.out.println("Digite o hp do "+i+"º pokemon");
+		Scanner scanner = new Scanner(new FileReader("arquivo.txt"))
+				.useDelimiter("\\||\\n");
+		while (scanner.hasNext()) {
+			nome = scanner.next();
 			hp = scanner.nextInt();
+			System.out.println(nome);
+			System.out.println(hp);
 			Pokemon pokemon = new Pokemon(nome, hp);
-			scanner.nextLine();
-			for(int j = 0; j < 4; j++){
-				//Scanner scanner = new Scanner(System.in);
-				System.out.println("Digite o nome da "+j+"ª habilidade");
-				nome = scanner.nextLine();
-				System.out.println("Digite o dano da "+j+"ª habilidade");
+			for(int j = 0; j < 4 ; j++){
+				nome = scanner.next();
 				dano = scanner.nextInt();
 				Habilidade habilidade = new Habilidade(nome, dano);
 				pokemon.setHabil(habilidade);
-				scanner.nextLine();
+				System.out.println(pokemon.getHabilidade(0).getNome());
 			}
-			trainer1.setPokemons(pokemon);
+
 		}
+		scanner.close();
 		trainer1.pokemonAtual = trainer1.getPokemon(0);
-		
-		for(int i = 0; i < 6; i++){
-			System.out.println("Digite o nome do "+i+"º pokemon");
-			nome = scanner.nextLine();
-			System.out.println("Digite o hp do "+i+"º pokemon");
-			hp = scanner.nextInt();
+
+		Scanner scanner1 = new Scanner(new FileReader("arquivo2.txt"))
+		.useDelimiter("\\||\\n");
+		while (scanner1.hasNext()) {
+			nome = scanner1.next();
+			hp = scanner1.nextInt();
+			System.out.println(nome);
+			System.out.println(hp);
 			Pokemon pokemon = new Pokemon(nome, hp);
-			scanner.nextLine();
-			for(int j = 0; j < 4; j++){
-				System.out.println("Digite o nome da "+j+"ª habilidade");
-				nome = scanner.nextLine();
-				System.out.println("Digite o dano da "+j+"ª habilidade");
-				dano = scanner.nextInt();
+			for(int j = 0; j < 4 ; j++){
+				nome = scanner1.next();
+				dano = scanner1.nextInt();
 				Habilidade habilidade = new Habilidade(nome, dano);
 				pokemon.setHabil(habilidade);
-				scanner.nextLine();
+				System.out.println(pokemon.getHabilidade(0).getNome());
 			}
-			trainer2.setPokemons(pokemon);
 		}
+		scanner1.close();
 		trainer2.pokemonAtual = trainer2.getPokemon(0);
+		while (trainer1.getNum() > 0 && trainer2.getNum() > 0) {
+			Scanner scanner2 = new Scanner(System.in);
+			// EventSet batalha = new EventSet();
+			System.out.println("O que o trainer 1 deseja fazer?");
+			System.out.println("0 - Fugir da Batalha");
+			System.out.println("1 - Trocar Pokemon");
+			System.out.println("2 - Usar poção");
+			System.out.println("3 - Atacar");
+			int k = scanner2.nextInt();
 
-		//EventSet batalha = new EventSet();
-		System.out.println("O que o trainer 1 deseja fazer?");
-		System.out.println("0 - Fugir da Batalha");
-		System.out.println("1 - Trocar Pokemon");
-		System.out.println("2 - Usar poção");
-		System.out.println("3 - Atacar");
-		int k = scanner.nextInt();
-			
-		System.out.println("O que o trainer 2 deseja fazer?");
-		System.out.println("0 - Fugir da Batalha");
-		System.out.println("1 - Trocar Pokemon");
-		System.out.println("2 - Usar poção");
-		System.out.println("3 - Atacar");
-		int l = scanner.nextInt();
-		Event evento1 = new Event(k, trainer1.pokemonAtual, trainer2.pokemonAtual, trainer1, trainer2);
-		Event evento2 = new Event(l, trainer2.pokemonAtual, trainer1.pokemonAtual, trainer2, trainer1);		
-		
-		if(k <= l){
-			evento1.action();
+			System.out.println("O que o trainer 2 deseja fazer?");
+			System.out.println("0 - Fugir da Batalha");
+			System.out.println("1 - Trocar Pokemon");
+			System.out.println("2 - Usar poção");
+			System.out.println("3 - Atacar");
+			int l = scanner2.nextInt();
+			Event evento1 = new Event(k, trainer1.pokemonAtual,
+					trainer2.pokemonAtual, trainer1, trainer2);
+			Event evento2 = new Event(l, trainer2.pokemonAtual,
+					trainer1.pokemonAtual, trainer2, trainer1);
+
+			if (k <= l) {
+				evento1.action();
+			} else {
+				evento2.action();
+			}
+			scanner2.close();
 		}
-		else{
-			evento2.action();		
-		}
-		scanner.close();	
 	}
-
 }

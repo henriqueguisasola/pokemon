@@ -18,8 +18,12 @@ public class Treinador {
 				pokemons[i] = null;
 			}
 		}
+		this.i--;
 	}
 	public Pokemon getPokemon(int i){
 		return pokemons[i];
+	}
+	public int getNum(){
+		return i;
 	}
 }
