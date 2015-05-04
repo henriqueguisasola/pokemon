@@ -4,20 +4,20 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
-public class Batalha extends EventSet {
+public class Batalha{
 
 	public static void main(String[] args) throws FileNotFoundException {
 		Treinador trainer1 = new Treinador("Trainer1");
 		Treinador trainer2 = new Treinador("Trainer2");
 		String nome;
 		int hp;
-		Mapa m =  new Mapa();
+		/*Mapa m =  new Mapa();
 		m.geraMapa();
 		m.setTreinadorMapa(trainer1);
 		m.imprimeMapa();
 		trainer1.andarTreinadorHoriz();
 		m.setTreinadorMapa(trainer1);
-		m.imprimeMapa();
+		m.imprimeMapa();*/
 		int dano;
 		Scanner scanner = new Scanner(new FileReader("arquivo.txt")).useDelimiter("\\||\\n");
 		for(int i = 0; i < 6; i++) {
