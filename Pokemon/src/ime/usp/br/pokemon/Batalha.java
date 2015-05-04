@@ -13,10 +13,10 @@ public class Batalha extends EventSet {
 		int hp;
 		Mapa m =  new Mapa();
 		m.geraMapa();
-		m.setTreinadorMapa(0,0);
+		m.setTreinadorMapa(trainer1);
 		m.imprimeMapa();
 		trainer1.andarTreinadorHoriz();
-		m.setTreinadorMapa(0,1);
+		m.setTreinadorMapa(trainer1);
 		m.imprimeMapa();
 		int dano;
 		Scanner scanner = new Scanner(new FileReader("arquivo.txt")).useDelimiter("\\||\\n");
