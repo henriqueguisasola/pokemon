@@ -42,4 +42,10 @@ public class Pokemon {
 		return hp;
 	}
 	
+	public void imprimeHabil(){
+		for(int j = 0; j < 4; j++){
+			System.out.println((j+1)+"- "+(habilidades[j]).getNome());
+		}
+	}
+	
 }
