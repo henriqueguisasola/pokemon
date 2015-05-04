@@ -11,6 +11,7 @@ public class Batalha extends EventSet {
 		Treinador trainer2 = new Treinador("Trainer2");
 		String nome;
 		int hp;
+		
 		int dano;
 		Scanner scanner = new Scanner(new FileReader("arquivo.txt"))
 				.useDelimiter("\\||\\n");
