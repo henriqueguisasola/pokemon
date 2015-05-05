@@ -7,8 +7,13 @@ import java.util.Scanner;
 public class Batalha{
 
 	public static void main(String[] args) throws FileNotFoundException {
-		Treinador trainer1 = new Treinador("Trainer1");
-		Treinador trainer2 = new Treinador("Trainer2");
+		System.out.println("Welcome to the Pokemon World!");
+		System.out.println("First trainer, what is your name?");
+		String h = Leitura.leString();
+		Treinador trainer1 = new Treinador(h);
+		System.out.println("Second trainer, what is your name?");
+		String m = Leitura.leString();
+		Treinador trainer2 = new Treinador(m);
 		String nome;
 		int hp;
 		/*Mapa m =  new Mapa();
@@ -51,22 +56,30 @@ public class Batalha{
 		}
 		scanner1.close();
 		trainer2.pokemonAtual = trainer2.getPokemon(0);
-		while (trainer1.getNum() > 0 && trainer2.getNum() > 0) {
-			// EventSet batalha = new EventSet();
-			System.out.println("O que o trainer 1 deseja fazer?");
-			System.out.println("0 - Fugir da Batalha");
-			System.out.println("1 - Trocar Pokemon");
-			System.out.println("2 - Usar poção");
-			System.out.println("3 - Atacar");
-			int k = Leitura.leNumero();
+		
+		System.out.println("\n---------------------------");
+		System.out.println("Welcome to the pokemon battle!");
+		System.out.println("Trainer 1 vs Trainer 2"); //Colocar depois em função de quem é a batalha
+		System.out.println("---------------------------\n");
 
-			System.out.println("O que o trainer 2 deseja fazer?");
-			System.out.println("0 - Fugir da Batalha");
-			System.out.println("1 - Trocar Pokemon");
-			System.out.println("2 - Usar poção");
-			System.out.println("3 - Atacar");
+		while (trainer1.getNum() > 0 && trainer2.getNum() > 0 && trainer1.pokemonAtual != null && trainer2.pokemonAtual != null) {
+			System.out.println(trainer1.getNome()+"'s "+trainer1.pokemonAtual.getNome()+"("+trainer1.pokemonAtual.getHP()+"/"+trainer1.pokemonAtual.getHPmax()+") vs "+
+					trainer2.getNome()+"'s "+trainer2.pokemonAtual.getNome()+"("+trainer2.pokemonAtual.getHP()+"/"+trainer2.pokemonAtual.getHPmax()+")");
+			System.out.println(trainer1.getNome()+" - What will "+trainer1.pokemonAtual.getNome()+" do?");
+			System.out.println("0 - Run");
+			System.out.println("1 - Switch Pokemon");
+			System.out.println("2 - Use Potion");
+			System.out.println("3 - Fight");
+			int k = Leitura.leNumero();
+			System.out.println("\n---------------------------\n");
+			System.out.println(trainer2.getNome()+" - What will "+trainer2.pokemonAtual.getNome()+" do?");
+			System.out.println("0 - Run");
+			System.out.println("1 - Switch Pokemon");
+			System.out.println("2 - Use Potion");
+			System.out.println("3 - Fight");
 			int l = Leitura.leNumero();
 			boolean vivo = true;
+			System.out.println("\n---------------------------\n");
 			if (k <= l) {
 				Event evento1 = new Event(k, trainer1.pokemonAtual,	trainer2.pokemonAtual, trainer1, trainer2);
 				evento1.action();

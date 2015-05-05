@@ -58,36 +58,37 @@ public class Event {
 		
 		if(prioridade == 3){
 			//Ataca pokemon
-			System.out.println(treinador.getNome()+" - Qual habilidade o "+origem.getNome()+" deve usar?");
+			System.out.println(treinador.getNome()+" - Which skill should "+origem.getNome()+" use?");
 			(treinador.pokemonAtual).imprimeHabil();
 			int s = Leitura.leNumero();
 			Habilidade habilAtual;
 			habilAtual = origem.getHabilidade(s-1);
 			alvo.tomouHabilidade(habilAtual.getDano());
-			System.out.println(alvo.getNome()+" tomou "+habilAtual.getDano()+" de dano.");
+			System.out.println(origem.getNome()+" used "+habilAtual.getNome()+".");
 			if(alvo.getHP() == 0){
-				System.out.println(alvo.getNome()+" morreu.");
+				System.out.println(alvo.getNome()+" fainted.");
 				treinadorAlvo.removePokemon(alvo);
 				if(treinadorAlvo.getNum() > 0){
-					System.out.println(treinadorAlvo.getNome()+" qual pokemon você deseja colocar em batalha?");
+					System.out.println(treinadorAlvo.getNome()+", whitch pokemon do ?");
 					treinadorAlvo.imprimeVivos();
 					String d = Leitura.leString();
 					Pokemon pokeAtual;
-					int j = 6;
-					while(j > 0 || alvoVivo){
+					int j = 5;
+					while(j >= 0 || alvoVivo){
 						pokeAtual = treinadorAlvo.getPokemon(j);
 						if(pokeAtual.getNome().equals(d)){
 							treinadorAlvo.pokemonAtual = pokeAtual;
 							alvoVivo = false;							
 						}
-						j++;
+						j--;
 					}
 				}
 				else{
-					System.out.println("O "+treinadorAlvo.getNome()+" esta sem pokemon!");
+					System.out.println("O "+treinadorAlvo.getNome()+" esta sem pokemons!");
 					alvoVivo = false;
 				}
 			}
+			System.out.println("\n---------------------------\n");
 		}
 		
 	}
