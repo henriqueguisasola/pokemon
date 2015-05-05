@@ -100,7 +100,7 @@ public class Batalha{
 				}
 			}
 		}
-		System.out.println("A batalha acabou!");
+		System.out.println("The battle is over!");
 		Leitura.close();
 	}
 }

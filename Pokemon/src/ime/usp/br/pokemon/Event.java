@@ -22,14 +22,14 @@ public class Event {
 	public void action(){
 		if(prioridade == 0){
 			//Fugiu da batalha
-			System.out.println("O Pokemon " + origem.getNome() + " fugiu da batalha.");
+			System.out.println(origem.getNome() + " got away safely!");
 			treinador.pokemonAtual = null;
 					
 		}
 		
 		if(prioridade == 1){
 			//Troca pokemon
-			System.out.println(treinador.getNome()+" qual pokemon você deseja colocar em batalha?");
+			System.out.println(treinador.getNome()+" which pokemon you want to put in the battle?");
 			treinador.imprimeVivos();
 			String s = Leitura.leString();
 			Pokemon pokeAtual;
@@ -42,11 +42,12 @@ public class Event {
 			}			
 			System.out.println(s);
 			System.out.println(treinador.pokemonAtual.getNome());
+			System.out.println("\n---------------------------\n");
 		}
 		
 		if(prioridade == 2){
 			//Usa poção
-			System.out.println("Qual item você deseja usar Potion(P) ou SuperPotion(S)");
+			System.out.println("Which item do you want to use? Potion(P) or SuperPotion(S)?");
 			String s = Leitura.leString();
 			if (s == "P"){
 				origem.recuperaHP(60);
@@ -54,6 +55,7 @@ public class Event {
 			if (s == "S"){
 				origem.recuperaHP(100);
 			}
+			System.out.println("\n---------------------------\n");
 		}
 		
 		if(prioridade == 3){
@@ -69,7 +71,8 @@ public class Event {
 				System.out.println(alvo.getNome()+" fainted.");
 				treinadorAlvo.removePokemon(alvo);
 				if(treinadorAlvo.getNum() > 0){
-					System.out.println(treinadorAlvo.getNome()+", whitch pokemon do ?");
+					System.out.println("---------------------------");
+					System.out.println(treinadorAlvo.getNome()+", which pokemon you want to put in the battle?");
 					treinadorAlvo.imprimeVivos();
 					String d = Leitura.leString();
 					Pokemon pokeAtual;
@@ -84,7 +87,7 @@ public class Event {
 					}
 				}
 				else{
-					System.out.println("O "+treinadorAlvo.getNome()+" esta sem pokemons!");
+					System.out.println(treinadorAlvo.getNome()+" is out of pokemons!");
 					alvoVivo = false;
 				}
 			}
