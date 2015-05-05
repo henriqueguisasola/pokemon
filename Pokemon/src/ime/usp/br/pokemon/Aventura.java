@@ -1,23 +1,59 @@
 package ime.usp.br.pokemon;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
 public class Aventura {
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		boolean automatico = true;
 		System.out.println("Welcome to the Pokemon World!");
 		System.out.println("What is your name pokemon trainer?");
-		String nome = Leitura.leString();
-		Treinador trainer1 = new Treinador(nome);
+		String nome1 = Leitura.leString();
+		Treinador trainer1 = new Treinador(nome1);
 		System.out.println("Now, I need you to choose 6 pokemons that will follow you in your journey.");
 		
-		//implementar escolha de pokemons
+		//implementar escolha de pokemons-------------------------------------------
 		
+		String nome;
+		int hp;
+		int dano;
+		Scanner scanner = new Scanner(new FileReader("arquivo.txt")).useDelimiter("\\||\\n");
+		for(int i = 0; i < 6; i++) {
+			nome = scanner.next();
+			hp = scanner.nextInt();
+			Pokemon pokemon = new Pokemon(nome, hp);
+			for(int j = 0; j < 4 ; j++){
+				nome = scanner.next();
+				dano = scanner.nextInt();
+				Habilidade habilidade = new Habilidade(nome, dano);
+				pokemon.setHabil(habilidade);
+			}
+			trainer1.setPokemons(pokemon);
+		}
+
+		scanner.close();
+		trainer1.pokemonAtual = trainer1.getPokemon(0);
+
+		
+		//--------------------------------------------------------------------------------
 		
 		System.out.println("What would you like to do? Play the Singleplayer mode(S) or play with your friend in the Multiplayer mode(M)?");
 		String d = Leitura.leString();
 		if(d == "S"){
 			//PArte do mapa
+			
+			
+			/*Mapa m =  new Mapa();
+			m.geraMapa();
+			m.setTreinadorMapa(trainer1);
+			m.imprimeMapa();
+			trainer1.andarTreinadorHoriz();
+			m.setTreinadorMapa(trainer1);
+			m.imprimeMapa();*/
+			
 			
 			//if(achou mato)
 			//		gera treinador com 1 pokemon aleatorio
@@ -30,8 +66,26 @@ public class Aventura {
 			Treinador trainer2 = new Treinador(nome2);
 			System.out.println("Now, "+nome2+" need to choose his pokemons.");
 			
-			// implementar escolha de pokemons
 			
+			// implementar escolha de pokemons-------------------------------------------
+			
+			Scanner scanner1 = new Scanner(new FileReader("arquivo2.txt")).useDelimiter("\\||\\n");
+			for(int i = 0; i < 6; i++) {
+				nome = scanner1.next();
+				hp = scanner1.nextInt();
+				Pokemon pokemon = new Pokemon(nome, hp);
+				for(int j = 0; j < 4 ; j++){
+					nome = scanner1.next();
+					dano = scanner1.nextInt();
+					Habilidade habilidade = new Habilidade(nome, dano);
+					pokemon.setHabil(habilidade);
+				}
+				trainer2.setPokemons(pokemon);
+			}
+			scanner1.close();
+			trainer2.pokemonAtual = trainer2.getPokemon(0);
+			
+			//--------------------------------------------------------------------------------
 			
 			//batalha(trainer1, trainer2, automatico)
 		}
