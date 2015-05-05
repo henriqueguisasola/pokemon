@@ -1,5 +1,7 @@
 package ime.usp.br.pokemon;
 
+import java.util.Random;
+
 
 public class Event {
 	private int prioridade;
@@ -49,49 +51,93 @@ public class Event {
 			//Usa poção
 			System.out.println("Which item do you want to use? Potion(P) or SuperPotion(S)?");
 			String s = Leitura.leString();
-			if (s == "P"){
+			if (s.equals("P")){
 				origem.recuperaHP(60);
 			}
-			if (s == "S"){
+			if (s.equals("S")){
 				origem.recuperaHP(100);
 			}
 			System.out.println("\n---------------------------\n");
+			System.out.println(origem.getHP());
 		}
 		
 		if(prioridade == 3){
 			//Ataca pokemon
-			System.out.println(treinador.getNome()+" - Which skill should "+origem.getNome()+" use?");
-			(treinador.pokemonAtual).imprimeHabil();
-			int s = Leitura.leNumero();
-			Habilidade habilAtual;
-			habilAtual = origem.getHabilidade(s-1);
-			alvo.tomouHabilidade(habilAtual.getDano());
-			System.out.println(origem.getNome()+" used "+habilAtual.getNome()+".");
-			if(alvo.getHP() == 0){
-				System.out.println(alvo.getNome()+" fainted.");
-				treinadorAlvo.removePokemon(alvo);
-				if(treinadorAlvo.getNum() > 0){
-					System.out.println("---------------------------");
-					System.out.println(treinadorAlvo.getNome()+", which pokemon you want to put in the battle?");
-					treinadorAlvo.imprimeVivos();
-					String d = Leitura.leString();
-					Pokemon pokeAtual;
-					int j = 5;
-					while(j >= 0 || alvoVivo){
-						pokeAtual = treinadorAlvo.getPokemon(j);
-						if(pokeAtual.getNome().equals(d)){
-							treinadorAlvo.pokemonAtual = pokeAtual;
-							alvoVivo = false;							
+			if(!treinador.getTipo()){
+				System.out.println(treinador.getNome()+" - Which skill should "+origem.getNome()+" use?");
+				(treinador.pokemonAtual).imprimeHabil();
+				int s = Leitura.leNumero();
+				Habilidade habilAtual;
+				habilAtual = origem.getHabilidade(s-1);
+				alvo.tomouHabilidade(habilAtual.getDano());
+				System.out.println(origem.getNome()+" used "+habilAtual.getNome()+".");
+				if(alvo.getHP() == 0){
+					System.out.println("Foe's "+alvo.getNome()+" fainted.");
+					treinadorAlvo.removePokemon(alvo);
+					if(treinadorAlvo.getNum() > 0){
+						if(!treinadorAlvo.getTipo()){
+							System.out.println("---------------------------");
+							System.out.println(treinadorAlvo.getNome()+", which pokemon do you want to put in the battle?");
+							treinadorAlvo.imprimeVivos();
+							String d = Leitura.leString();
+							Pokemon pokeAtual;
+							int j = 5;
+							while(j >= 0 || alvoVivo){
+								pokeAtual = treinadorAlvo.getPokemon(j);
+								if(pokeAtual.getNome().equals(d)){
+									treinadorAlvo.pokemonAtual = pokeAtual;
+									alvoVivo = false;							
+								}
+								j--;
+							}
 						}
-						j--;
+					}
+					else{
+						if(!treinadorAlvo.getTipo()){
+							System.out.println(treinadorAlvo.getNome()+" is out of pokemons!");
+						}
+						alvoVivo = false;
 					}
 				}
-				else{
-					System.out.println(treinadorAlvo.getNome()+" is out of pokemons!");
-					alvoVivo = false;
-				}
+				System.out.println("\n---------------------------\n");
 			}
-			System.out.println("\n---------------------------\n");
+			
+			if(treinador.getTipo()){
+				Random rnd = new Random();
+				int a = rnd.nextInt(4);
+				Habilidade habilAtual;
+				habilAtual = origem.getHabilidade(a);
+				alvo.tomouHabilidade(habilAtual.getDano());
+				System.out.println("Wild "+origem.getNome()+" used "+habilAtual.getNome()+".");
+				if(alvo.getHP() == 0){
+					System.out.println(alvo.getNome()+" fainted.");
+					treinadorAlvo.removePokemon(alvo);
+					if(treinadorAlvo.getNum() > 0){
+						System.out.println("---------------------------");
+						System.out.println(treinadorAlvo.getNome()+", which pokemon do you want to put in the battle?");
+						treinadorAlvo.imprimeVivos();
+						String d = Leitura.leString();
+						Pokemon pokeAtual;
+						int j = 5;
+						while(j >= 0 || alvoVivo){
+							pokeAtual = treinadorAlvo.getPokemon(j);
+							if(pokeAtual.getNome().equals(d)){
+								treinadorAlvo.pokemonAtual = pokeAtual;
+								alvoVivo = false;							
+							}
+							j--;
+						}
+
+					}
+					else{
+						if(!treinadorAlvo.getTipo()){
+							System.out.println(treinadorAlvo.getNome()+" is out of pokemons!");
+						}
+						alvoVivo = false;
+					}
+				}
+				System.out.println("\n---------------------------\n");
+			}
 		}
 		
 	}

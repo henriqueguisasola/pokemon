@@ -7,8 +7,11 @@ public class Treinador {
 	public Pokemon pokemonAtual;
 	int altura;
 	int largura;
-	public Treinador(String n){
+	private boolean automatico;
+	
+	public Treinador(String n, boolean c){
 		nome = n;
+		automatico = c;
 		altura = 0;
 		largura = 0;
 	}
@@ -17,11 +20,17 @@ public class Treinador {
 		i++;
 	}
 	public void removePokemon(Pokemon a){
-		for(int i = 0; i < 6;i++){
-			if(pokemons[i].getNome().equals(a.getNome())){
-				Pokemon pokemon = new Pokemon("Morto", 0);
-				pokemons[i] = pokemon;
+		if(!automatico){
+			for(int i = 0; i < 6;i++){
+				if(pokemons[i].getNome().equals(a.getNome())){
+					Pokemon pokemon = new Pokemon("Morto", 0);
+					pokemons[i] = pokemon;
+				}
 			}
+		}
+		else{
+			Pokemon pokemon = new Pokemon("Morto", 0);
+			pokemons[0] = pokemon;
 		}
 		this.i--;
 	}
@@ -59,5 +68,9 @@ public class Treinador {
 				System.out.println(pokemons[j].getNome());
 			}
 		}
+	}
+	
+	public boolean getTipo(){
+		return automatico;
 	}
 }
