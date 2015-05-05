@@ -6,7 +6,7 @@ public class Batalha{
 
 	public static void batalhar(Treinador trainer1, Treinador trainer2){
 		System.out.println("\n---------------------------");
-		System.out.println("Welcome to the pokemon battle!");
+		System.out.println("Pokemon battle!");
 		if(!trainer2.getTipo()){
 			System.out.println(trainer1.getNome()+" vs "+trainer2.getNome()); 
 			System.out.println("---------------------------\n");
@@ -15,7 +15,7 @@ public class Batalha{
 			System.out.println(trainer1.getNome()+" vs Wild Pokemon"); 
 			System.out.println("---------------------------\n");
 		}
-		while (trainer1.getNum() > 0 && trainer2.getNum() > 0 && trainer1.pokemonAtual != null && trainer2.pokemonAtual != null) {
+		while (trainer1.getNum() > 0 && trainer2.getNum() > 0 && !trainer1.getCorreu() && !trainer2.getCorreu()) {
 			if(!trainer2.getTipo()){
 				System.out.println(trainer1.getNome()+"'s "+trainer1.pokemonAtual.getNome()+"("+trainer1.pokemonAtual.getHP()+"/"+trainer1.pokemonAtual.getHPmax()+") vs "+
 						trainer2.getNome()+"'s "+trainer2.pokemonAtual.getNome()+"("+trainer2.pokemonAtual.getHP()+"/"+trainer2.pokemonAtual.getHPmax()+")");
@@ -32,6 +32,7 @@ public class Batalha{
 			int k = Leitura.leNumero();
 			
 			if(!trainer2.getTipo()){
+				//batalha entre 2 players
 				System.out.println("\n---------------------------\n");
 				System.out.println(trainer2.getNome()+" - What will "+trainer2.pokemonAtual.getNome()+" do?");
 				System.out.println("0 - Run");
@@ -49,7 +50,7 @@ public class Batalha{
 					Event evento2 = new Event(l, trainer2.pokemonAtual,	trainer1.pokemonAtual, trainer2, trainer1);
 					evento2.action();
 				}
-				if(vivo){
+				if(vivo && !trainer1.getCorreu()){
 					if (k <= l && trainer1.pokemonAtual != null) {
 						Event evento2 = new Event(l, trainer2.pokemonAtual,	trainer1.pokemonAtual, trainer2, trainer1);
 						evento2.action();
@@ -73,7 +74,7 @@ public class Batalha{
 					Event evento2 = new Event(3, trainer2.pokemonAtual,	trainer1.pokemonAtual, trainer2, trainer1);
 					evento2.action();
 				}
-				if(vivo){
+				if(vivo && !trainer1.getCorreu()){
 					if (k <= 3 && trainer1.pokemonAtual != null) {
 						Event evento2 = new Event(3, trainer2.pokemonAtual,	trainer1.pokemonAtual, trainer2, trainer1);
 						evento2.action();

@@ -25,8 +25,8 @@ public class Event {
 		if(prioridade == 0){
 			//Fugiu da batalha
 			System.out.println(origem.getNome() + " got away safely!");
-			treinador.pokemonAtual = null;
-					
+			treinador.correu();
+			System.out.println("\n---------------------------\n");		
 		}
 		
 		if(prioridade == 1){

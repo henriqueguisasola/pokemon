@@ -8,6 +8,7 @@ public class Treinador {
 	int altura;
 	int largura;
 	private boolean automatico;
+	private boolean correu = false;
 	
 	public Treinador(String n, boolean c){
 		nome = n;
@@ -72,5 +73,13 @@ public class Treinador {
 	
 	public boolean getTipo(){
 		return automatico;
+	}
+	
+	public boolean getCorreu(){
+		return correu;
+	}
+	
+	public void correu(){
+		correu = true;
 	}
 }
