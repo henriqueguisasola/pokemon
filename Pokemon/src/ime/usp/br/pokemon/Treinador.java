@@ -5,8 +5,8 @@ public class Treinador {
 	private int i = 0;
 	private String nome;
 	public Pokemon pokemonAtual;
-	int altura;
-	int largura;
+	private int altura;
+	private int largura;
 	private boolean automatico;
 	private boolean correu = false;
 	
@@ -48,10 +48,10 @@ public class Treinador {
 		return largura;
 	}
 	public void andarCima(){
-		altura += 1;
+		altura -= 1;
 	}
 	public void andarBaixo(){
-		altura -= 1;
+		altura += 1;
 	}
 	public void andarDireita(){
 		largura += 1;

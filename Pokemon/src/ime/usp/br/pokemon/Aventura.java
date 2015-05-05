@@ -46,16 +46,16 @@ public class Aventura {
 			//PArte do mapa
 			
 			
-			/*Mapa m =  new Mapa();
+			Mapa m =  new Mapa();
 			m.geraMapa();
-			m.setTreinadorMapa(trainer1);
+			m.atualizarTreinadorMapa(trainer1);
 			m.imprimeMapa();
-			trainer1.andarTreinadorHoriz();
-			m.setTreinadorMapa(trainer1);
-			m.imprimeMapa();*/
+			trainer1.andarBaixo();
+			m.imprimeMapa();
 			
 			
 			//if(achou mato)
+			
 			//		treinador trainer2 = new trainer2(???, true)
 			//		batalha(trainer1, trainer2, automatico)
 			
