@@ -88,6 +88,5 @@ public class Batalha{
 			}
 		}
 		System.out.println("The battle is over!");
-		Leitura.close();
 	}
 }

@@ -4,5 +4,5 @@ Blastoise|186|Bite|60|Hydro Pump|110|Surf|90|Ice Beam|90
 Alakazam|162|Confusion|50|Psychic|90|Dream Eater|100|Shadow Ball|80
 Pidgeot|190|Quick Attack|40|Air Slash|75|Fly|90|Hurricane|110
 Nidoking|188|Earthquake|100|Megahorn|110|Double Kick|60|Earth Power|80
-
+Fim
 

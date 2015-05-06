@@ -1,2 +1,1 @@
 Charizard|185|Wing Attack|60|Slash|70|Flamethrower|90|Inferno|100
-
