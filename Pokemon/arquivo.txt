@@ -1,8 +1,14 @@
-Charizard|185|Wing Attack|60|Slash|70|Flamethrower|90|Inferno|1000
+Charizard|185|Wing Attack|60|Slash|70|Flamethrower|90|Inferno|100
 Machamp|197|Dual Chop|70|Submission|80|Cross Chop|100|Strength|80
 Blastoise|186|Bite|60|Hydro Pump|110|Surf|90|Ice Beam|90
 Alakazam|162|Confusion|50|Psychic|90|Dream Eater|100|Shadow Ball|80
 Pidgeot|190|Quick Attack|40|Air Slash|75|Fly|90|Hurricane|110
 Nidoking|188|Earthquake|100|Megahorn|110|Double Kick|60|Earth Power|80
+Gyarados|202|Ice Fang|65|Aqua Tail|90|Surf|90|Hydro Pump|110
+Gengar|167|Shadow Ball|80|Psychic|90|Sucker Punch|80|Dream Eater|100
+Golem|187|Earthquake|100|Explosion|130|Rock Blast|75|Stone Edge|90
+Venusaur|187|Razor Leaf|55|Double-Edge|100|Solam Beam|120|Energy Ball|90
+Arcanine|197|Bite|60|Fire Fang|70|Overheat|120|Flamethrower|90
+Raichu|167|Quick Attack|50|Thunderbolt|90|Thunder|110|Thunder Shock|70
 Fim
 

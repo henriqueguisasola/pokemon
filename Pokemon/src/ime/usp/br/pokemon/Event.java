@@ -31,25 +31,22 @@ public class Event {
 		
 		if(prioridade == 1){
 			//Troca pokemon
-			System.out.println(treinador.getNome()+" which pokemon you want to put in the battle?");
+			System.out.println(treinador.getNome()+" which pokemon do you want to put in the battle?");
 			treinador.imprimeVivos();
 			String s = Leitura.leString();
 			Pokemon pokeAtual;
 			for(int i = 0; i < 6; i++){
 				pokeAtual = treinador.getPokemon(i);
-				System.out.println(pokeAtual.getNome());
 				if(pokeAtual.getNome().equals(s)){
 					treinador.pokemonAtual = pokeAtual;
 				}
 			}			
-			System.out.println(s);
-			System.out.println(treinador.pokemonAtual.getNome());
 			System.out.println("\n---------------------------\n");
 		}
 		
 		if(prioridade == 2){
 			//Usa poção
-			System.out.println("Which item do you want to use? Potion(P) or SuperPotion(S)?");
+			System.out.println(treinador.getNome()+" - Which item do you want to use? Potion(P) or SuperPotion(S)?");
 			String s = Leitura.leString();
 			if (s.equals("P")){
 				origem.recuperaHP(60);
@@ -58,7 +55,6 @@ public class Event {
 				origem.recuperaHP(100);
 			}
 			System.out.println("\n---------------------------\n");
-			System.out.println(origem.getHP());
 		}
 		
 		if(prioridade == 3){

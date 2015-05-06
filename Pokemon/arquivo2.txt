@@ -1,6 +1,0 @@
-Gyarados|202|Ice Fang|65|Aqua Tail|90|Surf|90|Hydro Pump|110
-Gengar|167|Shadow Ball|80|Psychic|90|Sucker Punch|80|Dream Eater|100
-Golem|187|Earthquake|100|Explosion|130|Rock Blast|75|Stone Edge|90
-Venusaur|187|Razor Leaf|55|Double-Edge|100|Solam Beam|120|Energy Ball|90
-Arcanine|197|Bite|60|Fire Fang|70|Overheat|120|Flamethrower|90
-Raichu|167|Quick Attack|50|Thunderbolt|90|Thunder|110|Thunder Shock|70

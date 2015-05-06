@@ -14,7 +14,7 @@ public class Mapa {
 		}
 	}
 	public void imprimeMapa(){
-		System.out.println("Mapa do Pokemon");
+		System.out.println("Pokemon Map");
 		for (int i =0 ; i < 10; i++){
 			System.out.print("+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+");
 			System.out.println("");
@@ -53,7 +53,6 @@ public class Mapa {
 	public boolean temPokemonNoMato(Treinador t){
 		if (posicaoAnterior == 1){
 			if(Math.random() >= 0.6){
-				System.out.println(t.getNome() +" Voce encontrou um Pokemon selvagem preparece para batalha!!!");
 				//Chance de ter um pokemon
 				return true;
 			}
@@ -65,4 +64,5 @@ public class Mapa {
 			return false;
 		}
 	}
+
 }
