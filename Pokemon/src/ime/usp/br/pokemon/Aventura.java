@@ -44,21 +44,28 @@ public class Aventura {
 		if(d.equals("S")){
 			//PArte do mapa
 			
-			
-			/*Mapa m =  new Mapa();
+			//Testestinhos show
+			Mapa m =  new Mapa();
 			m.geraMapa();
-			m.setTreinadorMapa(trainer1);
+			m.atualizarTreinadorMapa(trainer1);
 			m.imprimeMapa();
-			trainer1.andarTreinadorHoriz();
-			m.setTreinadorMapa(trainer1);
-			m.imprimeMapa();*/
-			
-			
-			//if(achou mato)
-			//		treinador trainer2 = new trainer2(???, true)
-			//		batalha(trainer1, trainer2, automatico)
-			
-			//-------------TESTE--------------
+			trainer1.andarDireita();
+			m.atualizarTreinadorMapa(trainer1);
+			m.temPokemonNoMato(trainer1);
+			m.imprimeMapa();
+			trainer1.andarDireita();
+			m.atualizarTreinadorMapa(trainer1);
+			m.temPokemonNoMato(trainer1);
+			m.imprimeMapa();
+			trainer1.andarBaixo();
+			m.atualizarTreinadorMapa(trainer1);
+			m.temPokemonNoMato(trainer1);
+			m.imprimeMapa();
+			trainer1.andarBaixo();
+			m.atualizarTreinadorMapa(trainer1);
+			m.temPokemonNoMato(trainer1);
+			m.imprimeMapa();
+			if(m.temPokemonNoMato(trainer1)){			
 			Treinador trainer2 = new Treinador("Wild", true);
 			Scanner scanner1 = new Scanner(new FileReader("arquivo3.txt")).useDelimiter("\\||\\n");
 			for(int i = 0; i < 1; i++) {
@@ -78,7 +85,7 @@ public class Aventura {
 			
 			Batalha.batalhar(trainer1, trainer2);
 			//--------------------------------------------
-		}
+			}
 		if(d.equals("M")){
 			automatico = false;
 			System.out.println("You chose the Multiplayer mode, but I still don't know your friend's name, can you tell me?");
@@ -88,8 +95,9 @@ public class Aventura {
 			Aventura.escolhaPokemons(trainer2);
 			
 			Batalha.batalhar(trainer1, trainer2);
-		}
+			}
 		Leitura.close();
+		}
 	}
 	
 	public static void imprimeLista(){
@@ -121,4 +129,7 @@ public class Aventura {
 		}
 		trainer.pokemonAtual = trainer.getPokemon(0);
 	}
+
 }
+
+
