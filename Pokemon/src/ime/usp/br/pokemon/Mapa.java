@@ -1,14 +1,14 @@
 package ime.usp.br.pokemon;
 
 public class Mapa {
-	private static int m[][] = new int[10][10];
+	private static int m[][] = new int[10][20];
 	public int posicaoAnterior = m[0][0];
 	public Mapa(){
 	}
 	public void geraMapa(){
 		m[0][0] = 0;
 		for (int i =0 ; i < 10; i++){
-			for(int j = 1; j < 10; j++){
+			for(int j = 1; j < 20; j++){
 				m[i][j] = (int)Math.round(Math.random());
 			}
 		}
@@ -16,9 +16,9 @@ public class Mapa {
 	public void imprimeMapa(){
 		System.out.println("Mapa do Pokemon");
 		for (int i =0 ; i < 10; i++){
-			System.out.print("+---+---+---+---+---+---+---+---+---+---+");
+			System.out.print("+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+");
 			System.out.println("");
-			for(int j = 0; j < 10; j++){
+			for(int j = 0; j < 20; j++){
 				if (m[i][j] == 1){
 					System.out.print("| # ");
 				}
@@ -32,7 +32,7 @@ public class Mapa {
 			System.out.print("|");
 			System.out.println("");
 		}
-		System.out.print("+---+---+---+---+---+---+---+---+---+---+");
+		System.out.print("+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+");
 		System.out.println("");
 		System.out.println("");
 	}
