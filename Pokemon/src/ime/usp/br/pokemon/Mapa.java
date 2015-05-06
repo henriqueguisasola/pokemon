@@ -4,11 +4,11 @@ public class Mapa {
 	private static int m[][] = new int[10][10];
 	public int posicaoAnterior = m[0][0];
 	public Mapa(){
-		
 	}
 	public void geraMapa(){
+		m[0][0] = 0;
 		for (int i =0 ; i < 10; i++){
-			for(int j = 0; j < 10; j++){
+			for(int j = 1; j < 10; j++){
 				m[i][j] = (int)Math.round(Math.random());
 			}
 		}
@@ -40,14 +40,20 @@ public class Mapa {
 		if((t.getAlturaAnterior() != t.getAltura()) || (t.getLarguraAnterior() != t.getLargura())){
 			System.out.println(t.getAlturaAnterior()+" "+t.getLarguraAnterior() +" -----> " +t.getAltura()+" "+t.getLargura() );
 			m[t.getAlturaAnterior()][t.getLarguraAnterior()] = posicaoAnterior;
-			System.out.println("posicaoAnterior = "+posicaoAnterior );
+			if(m[t.getAltura()][t.getLargura()] == 1){
+				System.out.println("Posicao Atual: Mato");
+			}
+			else{
+				System.out.println("Posicao Atual: Chao");
+			}
 		}
 		posicaoAnterior = m[t.getAltura()][t.getLargura()];
 		m[t.getAltura()][t.getLargura()] = 2;
 	}
-	public boolean temPokemon(Treinador t){
-		if (m[t.getAltura()][t.getLargura()] == 1){
-			if(Math.random() >= 0.4){
+	public boolean temPokemonNoMato(Treinador t){
+		if (posicaoAnterior == 1){
+			if(Math.random() >= 0.6){
+				System.out.println(t.getNome() +" Voce encontrou um Pokemon selvagem preparece para batalha!!!");
 				//Chance de ter um pokemon
 				return true;
 			}

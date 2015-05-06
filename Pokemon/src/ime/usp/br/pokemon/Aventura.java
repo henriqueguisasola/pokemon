@@ -45,27 +45,28 @@ public class Aventura {
 		if(d.equals("S")){
 			//PArte do mapa
 			
-			
+			//Testestinhos show
 			Mapa m =  new Mapa();
 			m.geraMapa();
 			m.atualizarTreinadorMapa(trainer1);
 			m.imprimeMapa();
 			trainer1.andarDireita();
 			m.atualizarTreinadorMapa(trainer1);
+			m.temPokemonNoMato(trainer1);
 			m.imprimeMapa();
 			trainer1.andarDireita();
 			m.atualizarTreinadorMapa(trainer1);
+			m.temPokemonNoMato(trainer1);
 			m.imprimeMapa();
 			trainer1.andarBaixo();
 			m.atualizarTreinadorMapa(trainer1);
+			m.temPokemonNoMato(trainer1);
 			m.imprimeMapa();
-			
-			//if(achou mato)
-			
-			//		treinador trainer2 = new trainer2(???, true)
-			//		batalha(trainer1, trainer2, automatico)
-			
-			//-------------TESTE--------------
+			trainer1.andarBaixo();
+			m.atualizarTreinadorMapa(trainer1);
+			m.temPokemonNoMato(trainer1);
+			m.imprimeMapa();
+			if(m.temPokemonNoMato(trainer1)){			
 			Treinador trainer2 = new Treinador("Wild", true);
 			Scanner scanner1 = new Scanner(new FileReader("arquivo3.txt")).useDelimiter("\\||\\n");
 			for(int i = 0; i < 1; i++) {
@@ -117,5 +118,7 @@ public class Aventura {
 			Batalha.batalhar(trainer1, trainer2);
 		}
 	}
-
+	}
 }
+
+
