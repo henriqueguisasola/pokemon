@@ -50,9 +50,15 @@ public class Aventura {
 			m.geraMapa();
 			m.atualizarTreinadorMapa(trainer1);
 			m.imprimeMapa();
-			trainer1.andarBaixo();
+			trainer1.andarDireita();
+			m.atualizarTreinadorMapa(trainer1);
 			m.imprimeMapa();
-			
+			trainer1.andarDireita();
+			m.atualizarTreinadorMapa(trainer1);
+			m.imprimeMapa();
+			trainer1.andarBaixo();
+			m.atualizarTreinadorMapa(trainer1);
+			m.imprimeMapa();
 			
 			//if(achou mato)
 			

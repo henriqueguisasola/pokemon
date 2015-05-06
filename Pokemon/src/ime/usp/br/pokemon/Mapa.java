@@ -2,7 +2,7 @@ package ime.usp.br.pokemon;
 
 public class Mapa {
 	private static int m[][] = new int[10][10];
-	private static int posicaoAnterior;
+	public int posicaoAnterior = m[0][0];
 	public Mapa(){
 		
 	}
@@ -37,6 +37,12 @@ public class Mapa {
 		System.out.println("");
 	}
 	public void atualizarTreinadorMapa(Treinador t){ 
+		if((t.getAlturaAnterior() != t.getAltura()) || (t.getLarguraAnterior() != t.getLargura())){
+			System.out.println(t.getAlturaAnterior()+" "+t.getLarguraAnterior() +" -----> " +t.getAltura()+" "+t.getLargura() );
+			m[t.getAlturaAnterior()][t.getLarguraAnterior()] = posicaoAnterior;
+			System.out.println("posicaoAnterior = "+posicaoAnterior );
+		}
+		posicaoAnterior = m[t.getAltura()][t.getLargura()];
 		m[t.getAltura()][t.getLargura()] = 2;
 	}
 	public boolean temPokemon(Treinador t){

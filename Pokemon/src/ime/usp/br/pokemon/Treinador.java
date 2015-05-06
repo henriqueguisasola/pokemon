@@ -5,8 +5,10 @@ public class Treinador {
 	private int i = 0;
 	private String nome;
 	public Pokemon pokemonAtual;
-	private int altura;
-	private int largura;
+	private static int altura;
+	private static int largura;
+	private static int alturaAnterior;
+	private static int larguraAnterior;
 	private boolean automatico;
 	private boolean correu = false;
 	
@@ -15,6 +17,8 @@ public class Treinador {
 		automatico = c;
 		altura = 0;
 		largura = 0;
+		alturaAnterior = altura;
+		larguraAnterior = largura;
 	}
 	public void setPokemons(Pokemon a){
 		pokemons[i] = a;
@@ -47,16 +51,26 @@ public class Treinador {
 	public int getLargura(){
 		return largura;
 	}
+	public int getAlturaAnterior(){
+		return alturaAnterior;
+	}
+	public int getLarguraAnterior(){
+		return larguraAnterior;
+	}
 	public void andarCima(){
+		alturaAnterior = altura;
 		altura -= 1;
 	}
 	public void andarBaixo(){
+		alturaAnterior = altura;
 		altura += 1;
 	}
 	public void andarDireita(){
+		larguraAnterior = largura;
 		largura += 1;
 	}
 	public void andarEsquerda(){
+		larguraAnterior = largura;
 		largura -= 1;
 	}
 	
