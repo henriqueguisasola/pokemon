@@ -38,7 +38,7 @@ public class Mapa {
 	}
 	public void atualizarTreinadorMapa(Treinador t){ 
 		if((t.getAlturaAnterior() != t.getAltura()) || (t.getLarguraAnterior() != t.getLargura())){
-			System.out.println(t.getAlturaAnterior()+" "+t.getLarguraAnterior() +" -----> " +t.getAltura()+" "+t.getLargura() );
+			System.out.println("("+t.getAlturaAnterior()+","+t.getLarguraAnterior()+")" +" -----> "+"(" +t.getAltura()+","+t.getLargura()+")" );
 			m[t.getAlturaAnterior()][t.getLarguraAnterior()] = posicaoAnterior;
 			if(m[t.getAltura()][t.getLargura()] == 1){
 				System.out.println("Posicao Atual: Mato");
