@@ -43,14 +43,15 @@ public class Aventura {
 		System.out.println("What would you like to do? Play the Singleplayer mode(S) or play with your friend in the Multiplayer mode(M)?");
 		String d = Leitura.leString();
 		if(d.equals("S")){
-			//PArte do mapa
 			System.out.println("\n---------------------------\n");
+			System.out.println("Professor Oak needs your help! It looks that a legendary pokemon is causing some problems nearby the Viridian Forest! " +
+					"You should check it, maybe you can find him.(The entrance to the cave is marked with a 'C' in your map)");
 			Mapa m = new Mapa();
 			m.geraMapa();
 			m.atualizarTreinadorMapa(trainer1);
 			m.imprimeMapa();
 			
-			while(trainer1.getAltura() != 9 && trainer1.getLargura() != 19){
+			while(trainer1.getAltura() != 9 || trainer1.getLargura() != 19 || trainer1.getNum() > 0){
 				System.out.println("\n---------------------------\n");
 				System.out.println("Which way would you like to go? (up, down, right, left)");
 				String andar = Leitura.leString();
@@ -72,7 +73,9 @@ public class Aventura {
 								trainer2.setPokemons(pokemon3);
 								trainer2.pokemonAtual = trainer2.getPokemon(0);
 								Leitura.leString();
-								Batalha.batalhar(trainer1, trainer2);
+								Batalha battle = new Batalha();
+								battle.batalhar(trainer1, trainer2);
+								m.imprimeMapa();
 							}
 						}
 						else{
@@ -97,7 +100,9 @@ public class Aventura {
 								trainer2.setPokemons(pokemon3);
 								trainer2.pokemonAtual = trainer2.getPokemon(0);
 								Leitura.leString();
-								Batalha.batalhar(trainer1, trainer2);
+								Batalha battle = new Batalha();
+								battle.batalhar(trainer1, trainer2);
+								m.imprimeMapa();
 							}
 						}
 						else{
@@ -122,7 +127,9 @@ public class Aventura {
 								trainer2.setPokemons(pokemon3);
 								trainer2.pokemonAtual = trainer2.getPokemon(0);
 								Leitura.leString();
-								Batalha.batalhar(trainer1, trainer2);
+								Batalha battle = new Batalha();
+								battle.batalhar(trainer1, trainer2);
+								m.imprimeMapa();
 							}
 						}
 						else{
@@ -146,7 +153,9 @@ public class Aventura {
 								trainer2.setPokemons(pokemon3);
 								trainer2.pokemonAtual = trainer2.getPokemon(0);
 								Leitura.leString();
-								Batalha.batalhar(trainer1, trainer2);
+								Batalha battle = new Batalha();
+								battle.batalhar(trainer1, trainer2);
+								m.imprimeMapa();
 							}
 						}
 						else{
@@ -159,6 +168,27 @@ public class Aventura {
 						break;
 				}
 			}
+			if(trainer1.getAltura() == 9 && trainer1.getLargura() == 19){
+				System.out.println("You found him! It's the legendary pokemon! Press ENTER to start the battle!");
+				Treinador trainer2 = new Treinador("Wild", true);
+				Pokemon pokemon3 = new Pokemon("Mewtwo", 300);
+				Habilidade habil1 = new Habilidade("Psychic", 90);
+				pokemon3.setHabil(habil1);
+				Habilidade habil2 = new Habilidade("Dream Eater", 100);
+				pokemon3.setHabil(habil2);
+				Habilidade habil3 = new Habilidade("Focus Blast", 110);
+				pokemon3.setHabil(habil3);
+				Habilidade habil4 = new Habilidade("Psystrike", 120);
+				pokemon3.setHabil(habil4);
+				trainer2.setPokemons(pokemon3);
+				trainer2.pokemonAtual = trainer2.getPokemon(0);
+				Leitura.leString();
+				Batalha battle = new Batalha();
+				battle.batalhar(trainer1, trainer2);	
+			}
+			if(trainer1.getNum() == 0){
+				System.out.println("You lose!");
+			}
 		}
 		if(d.equals("M")){
 			automatico = false;
@@ -168,7 +198,8 @@ public class Aventura {
 			System.out.println("Now, "+nome2+" need to choose his pokemons.");
 			Aventura.escolhaPokemons(trainer2);
 			
-			Batalha.batalhar(trainer1, trainer2);
+			Batalha battle = new Batalha();
+			battle.batalhar(trainer1, trainer2);
 			}
 		Leitura.close();
 	}

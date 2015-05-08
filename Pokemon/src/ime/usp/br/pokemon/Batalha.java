@@ -4,7 +4,7 @@ package ime.usp.br.pokemon;
 
 public class Batalha{
 
-	public static void batalhar(Treinador trainer1, Treinador trainer2){
+	public void batalhar(Treinador trainer1, Treinador trainer2){
 		System.out.println("\n---------------------------");
 		System.out.println("Pokemon battle!");
 		if(!trainer2.getTipo()){

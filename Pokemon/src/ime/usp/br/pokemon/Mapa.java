@@ -12,6 +12,7 @@ public class Mapa {
 				m[i][j] = (int)Math.round(Math.random());
 			}
 		}
+		m[9][19] = 3;
 	}
 	public void imprimeMapa(){
 		System.out.println("Pokemon Map");
@@ -27,7 +28,10 @@ public class Mapa {
 				}
 				if(m[i][j] == 2){
 					System.out.print("| T ");
-				}	
+				}
+				if(m[i][j] == 3){
+					System.out.print("| C ");
+				}
 			}
 			System.out.print("|");
 			System.out.println("");
