@@ -6,12 +6,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Aventura {
-	static private Pokemon[] listaPokemons = new Pokemon[255];
-	static private boolean automatico = true;
+	static private Pokemon[] listaPokemons = new Pokemon[50];
+	static private Pokemon[] listaWild = new Pokemon[25];
 	static private int numPokemons=0;
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		
+		//Leitura do Arquivo e construção do vetores de pokemons
 		String nome;
 		int hp;
 		int dano;
@@ -30,9 +30,23 @@ public class Aventura {
 			numPokemons++;
 			k++;
 		}
+		int z = 0;
+		String wild;
+		while((wild = scanner.next()).equals("Fim") == false){
+			hp = scanner.nextInt();
+			Pokemon pokemon = new Pokemon(wild, hp);
+			for(int m = 0; m < 4 ; m++){
+				wild = scanner.next();
+				dano = scanner.nextInt();
+				Habilidade habilidade = new Habilidade(wild, dano);
+				pokemon.setHabil(habilidade);
+			}
+			listaWild[z] = pokemon;
+			z++;
+		}
 		scanner.close();
 
-
+		//Construção do treinador principal
 		System.out.println("Welcome to the Pokemon World!");
 		System.out.println("What is your name pokemon trainer?");
 		String nome1 = Leitura.leString();
@@ -43,15 +57,18 @@ public class Aventura {
 		System.out.println("What would you like to do? Play the Singleplayer mode(S) or play with your friend in the Multiplayer mode(M)?");
 		String d = Leitura.leString();
 		if(d.equals("S")){
+			//Modo Single Player
 			System.out.println("\n---------------------------\n");
 			System.out.println("Professor Oak needs your help! It looks that a legendary pokemon is causing some problems nearby the Viridian Forest! " +
 					"You should check it, maybe you can find him.(The entrance to the cave is marked with a 'C' in your map)");
+			//Geração do mapa
 			Mapa m = new Mapa();
 			m.geraMapa();
 			m.atualizarTreinadorMapa(trainer1);
 			m.imprimeMapa();
 			
-			while(trainer1.getAltura() != 9 || trainer1.getLargura() != 19 || trainer1.getNum() > 0){
+			while((trainer1.getAltura() != 9 || trainer1.getLargura() != 19) && trainer1.getNum() > 0){
+				//Ações do Treinador
 				System.out.println("\n---------------------------\n");
 				System.out.println("Which way would you like to go? (up, down, right, left)");
 				String andar = Leitura.leString();
@@ -65,10 +82,10 @@ public class Aventura {
 								System.out.println("You found a wild pokemon! Press ENTER to start the battle!");
 								Treinador trainer2 = new Treinador("Wild", true);
 								Random rnd = new Random();
-								int n = rnd.nextInt(11);
-								Pokemon pokemon3 = new Pokemon(listaPokemons[n].getNome(), listaPokemons[n].getHPmax());
+								int n = rnd.nextInt(19);
+								Pokemon pokemon3 = new Pokemon(listaWild[n].getNome(), listaWild[n].getHPmax());
 								for(int l = 0; l < 4; l++){
-									pokemon3.setHabil(listaPokemons[n].getHabilidade(l));
+									pokemon3.setHabil(listaWild[n].getHabilidade(l));
 								}
 								trainer2.setPokemons(pokemon3);
 								trainer2.pokemonAtual = trainer2.getPokemon(0);
@@ -92,10 +109,10 @@ public class Aventura {
 								System.out.println("You found a wild pokemon! Press ENTER to start the battle!");
 								Treinador trainer2 = new Treinador("Wild", true);
 								Random rnd = new Random();
-								int n = rnd.nextInt(11);
-								Pokemon pokemon3 = new Pokemon(listaPokemons[n].getNome(), listaPokemons[n].getHPmax());
+								int n = rnd.nextInt(19);
+								Pokemon pokemon3 = new Pokemon(listaWild[n].getNome(), listaWild[n].getHPmax());
 								for(int l = 0; l < 4; l++){
-									pokemon3.setHabil(listaPokemons[n].getHabilidade(l));
+									pokemon3.setHabil(listaWild[n].getHabilidade(l));
 								}
 								trainer2.setPokemons(pokemon3);
 								trainer2.pokemonAtual = trainer2.getPokemon(0);
@@ -111,7 +128,7 @@ public class Aventura {
 					
 						break;
 					case("right"):
-						if((trainer1.getAltura()+1) <= 19){
+						if((trainer1.getLargura()+1) <= 19){
 							trainer1.andarDireita();
 							m.atualizarTreinadorMapa(trainer1);
 							m.imprimeMapa();
@@ -119,10 +136,10 @@ public class Aventura {
 								System.out.println("You found a wild pokemon! Press ENTER to start the battle!");
 								Treinador trainer2 = new Treinador("Wild", true);
 								Random rnd = new Random();
-								int n = rnd.nextInt(11);
-								Pokemon pokemon3 = new Pokemon(listaPokemons[n].getNome(), listaPokemons[n].getHPmax());
+								int n = rnd.nextInt(19);
+								Pokemon pokemon3 = new Pokemon(listaWild[n].getNome(), listaWild[n].getHPmax());
 								for(int l = 0; l < 4; l++){
-									pokemon3.setHabil(listaPokemons[n].getHabilidade(l));
+									pokemon3.setHabil(listaWild[n].getHabilidade(l));
 								}
 								trainer2.setPokemons(pokemon3);
 								trainer2.pokemonAtual = trainer2.getPokemon(0);
@@ -137,7 +154,7 @@ public class Aventura {
 						}
 						break;
 					case("left"):
-						if((trainer1.getAltura()-1) >= 0){
+						if((trainer1.getLargura()-1) >= 0){
 							trainer1.andarEsquerda();
 							m.atualizarTreinadorMapa(trainer1);
 							m.imprimeMapa();
@@ -168,6 +185,12 @@ public class Aventura {
 						break;
 				}
 			}
+			//Treinador sem pokemons
+			if(trainer1.getNum() == 0){
+				System.out.println("You lose!");
+				System.out.println("--- THE END ---");
+			}
+			//Batalha final
 			if(trainer1.getAltura() == 9 && trainer1.getLargura() == 19){
 				System.out.println("You found him! It's the legendary pokemon! Press ENTER to start the battle!");
 				Treinador trainer2 = new Treinador("Wild", true);
@@ -184,14 +207,25 @@ public class Aventura {
 				trainer2.pokemonAtual = trainer2.getPokemon(0);
 				Leitura.leString();
 				Batalha battle = new Batalha();
-				battle.batalhar(trainer1, trainer2);	
-			}
-			if(trainer1.getNum() == 0){
-				System.out.println("You lose!");
+				battle.batalhar(trainer1, trainer2);
+				if(trainer2.getNum() == 0){
+					System.out.println("Congratulations, you have defeated Mewtwo!");
+					System.out.println("--- THE END ---");
+				}
+				else{
+					if(trainer1.getNum() == 0){
+						System.out.println("You lose!");
+						System.out.println("--- THE END ---");
+					}
+					else{
+						System.out.println("Running away? What a shame!");
+						System.out.println("--- THE END ---");
+					}
+				}
 			}
 		}
 		if(d.equals("M")){
-			automatico = false;
+			//Modo Multiplayer
 			System.out.println("You chose the Multiplayer mode, but I still don't know your friend's name, can you tell me?");
 			String nome2 = Leitura.leString();
 			Treinador trainer2 = new Treinador(nome2, false);
@@ -206,9 +240,10 @@ public class Aventura {
 	
 	public static void imprimeLista(){
 		System.out.println("\nList of available pokemon:");
-		for(int i = 0; i < numPokemons; i = i + 4){
+		for(int i = 0; i < numPokemons; i = i + 8){
 			System.out.println(listaPokemons[i].getNome()+"    "+listaPokemons[i+1].getNome()+"    "+listaPokemons[i+2].getNome()+"    "+
-					listaPokemons[i+3].getNome());
+					listaPokemons[i+3].getNome()+"    "+listaPokemons[i+4].getNome()+"    "+listaPokemons[i+5].getNome()+"    "+listaPokemons[i+6].getNome()+"    "+
+					listaPokemons[i+7].getNome());
 		}
 	}
 	

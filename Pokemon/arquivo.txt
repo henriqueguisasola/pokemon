@@ -1,14 +1,63 @@
-Charizard|185|Wing Attack|60|Slash|70|Flamethrower|90|Inferno|100
-Machamp|197|Dual Chop|70|Submission|80|Cross Chop|100|Strength|80
-Blastoise|186|Bite|60|Hydro Pump|110|Surf|90|Ice Beam|90
-Alakazam|162|Confusion|50|Psychic|90|Dream Eater|100|Shadow Ball|80
-Pidgeot|190|Quick Attack|40|Air Slash|75|Fly|90|Hurricane|110
-Nidoking|188|Earthquake|100|Megahorn|110|Double Kick|60|Earth Power|80
-Gyarados|202|Ice Fang|65|Aqua Tail|90|Surf|90|Hydro Pump|110
-Gengar|167|Shadow Ball|80|Psychic|90|Sucker Punch|80|Dream Eater|100
-Golem|187|Earthquake|100|Explosion|130|Rock Blast|75|Stone Edge|90
 Venusaur|187|Razor Leaf|55|Double-Edge|100|Solam Beam|120|Energy Ball|90
-Arcanine|197|Bite|60|Fire Fang|70|Overheat|120|Flamethrower|90
+Charizard|185|Wing Attack|60|Slash|70|Flamethrower|90|Inferno|100
+Blastoise|186|Bite|60|Hydro Pump|110|Surf|90|Ice Beam|90
+Butterfree|167|Silver Wind|60|Bug Buzz|90|Facade|70|Psybeam|70
+Beedrill|172|Poison Jab|80|Assurance|60|Venoshock|65|Sludge Bomb|90
+Pidgeot|190|Quick Attack|40|Air Slash|75|Fly|90|Hurricane|110
+Fearow|172|Aerial Ace|60|Drill Peck|80|Steel Wing|70|Fly|90
 Raichu|167|Quick Attack|50|Thunderbolt|90|Thunder|110|Thunder Shock|70
+Nidoqueen|197|Earth Power|80|Body Slam|85|Superpower|120|Chip Away|70
+Nidoking|188|Earthquake|100|Megahorn|110|Double Kick|60|Earth Power|80
+Ninetales|180|Flamethrower|90|Flame Charge|50|Incinerate|60|Fire Blast|110
+Vileplume|182|Mega Drain|40|Petal Blizzard|90|Petal Dance|120|Energy Ball|90
+Venomoth|177|Signal Beam|75|Poison Fang|50|Bug Buzz|90|Sludge Bomb|90
+Golduck|187|Water Gun|40|Water Pulse|60|Aqua Tail|90|Hydro Pump|110
+Primeape|172|Karate Chop|50|Cross Chop|100|Close Combat|120|Assurance|60
+Arcanine|197|Bite|60|Fire Fang|70|Overheat|120|Flamethrower|90
+Poliwrath|197|Submission|80|Dynamic Punch|100|Surf|90|Scald|80
+Alakazam|162|Confusion|50|Psychic|90|Dream Eater|100|Shadow Ball|80
+Machamp|197|Dual Chop|70|Submission|80|Cross Chop|100|Strength|80
+Tentacruel|187|Acid|40|Poison Jab|80|Brine|65|Waterfall|80
+Golem|187|Earthquake|100|Explosion|130|Rock Blast|75|Stone Edge|90
+Rapidash|172|Flame Wheel|60|Flare Blitz|120|Fury Attack|60|Flame Charge|50
+Magneton|157|Spark|65|Flash Cannon|80|Discharge|80|Zap Cannon|120
+Dewgong|197|Aurora Beam|65|Agua Jet|50|Dive|80|Ice Beam|90
+Muk|212|Sludge|65|Sludge Wave|95|Mud Bomb|65|Sludge Bomb|90
+Cloyster|157|Aurora Beam|65|Spike Cannon|50|Hydro Pump|110|Icicle Crash|85
+Gengar|167|Shadow Ball|80|Psychic|90|Sucker Punch|80|Dream Eater|100
+Kingler|162|Bubble Beam|65|Metal Claw|50|Crabhammer|100|Brine|65
+Exeggutor|202|Seed Bomb|80|Psyshock|80|Egg Bomb|100|Wood Hammer|120
+Rhydon|212|Drill Run|80|Stone Edge|100|Bulldoze|60|Smack Down|50
+Scyther|177|Wing Attack|60|Fury Cutter|40|X-Scissor|80|Night Slash|70
+Electabuzz|172|Thunder|110|Thunderbold|90|Discharge|80|Thunder Punch|75
+Magmar|172|Lava Plume|80|Fire Punch|75|Flame Burst|70|Flamethrower|90
+Pinsir|172|X-Scissor|80|Storm Throw|60|Superpower|120|Brick Break|75
+Tauros|182|Payback|50|Zen Headbutt|80|Take Down|90|Thrash|120
+Gyarados|202|Ice Fang|65|Aqua Tail|90|Surf|90|Hydro Pump|110
+Kabutops|167|Ancient Power|60|Slash|70|Night Slash|70|Stone Edge|100
+Omastar|177|Ancient Power|60|Rock Blast|75|Hydro Pump|110|Water Gun|40
+Dragonite|198|Outrage|120|Dragon Rush|100|Dragon Tail|60|Agua Tail|90
+Snorlax|237|Lick|30|Chip Away|70|Body Slam|85|Snore|50
+Fim
+Metapod|110|Tackle|50|Bug Bite|60|Harden|0|String Shot|0
+Kakuna|105|Tackle|50|Bug Bite|60|Harden|0|String Shot|0
+Pidgeotto|123|Tackle|50|Quick Attack|40|Gust|40|Wing Attack|60
+Raticate|115|Quick Attack|40|Bite|60|Pursuit|40|Tackle|50
+Arbok|120|Poison Sting|15|Bite|60|Acid|40|Acid Spray|40
+Sandslash|125|Poison String|15|Rapid Spin|20|Fury Cutter|40|Swift|60
+Golbat|125|Astonish|30|Bite|60|Leech Life|20|Poison Fang|50
+Dugtrio|95|Scratch|40|Mud-Slap|20|Bulldoze|60|Sand Tomb|35
+Weepinbell|125|Vine Whip|45|Wrap|15|Acid|40|Razor Leaf|55
+Slowpoke|130|Water Dun|40|Tackle|50|Confusion|50|Water Pulse|60
+Doduo|95|Peck|35|Quick Attack|40|Rage|20|Pluck|60
+Drowzee|120|Pound|40|Confusion|50|Psybeam|65|Meditate|0
+Voltorb|100|Rollout|30|Spark|65|Charge Beam|50|Tackle|50
+Porygon|125|Tackle|50|Psybeam|65|Tri Attack|70|Agility|0
+Eevee|115|Tackle|50|Swift|60|Quick Attack|40|Bite|60
+Cubone|110|Rage|20|False Whip|40|Bonemerang|50|Bone Rush|25
+Weezing|125|Smog|30|Tackle|50|Clear Smog|50|Sludge|65
+Tangela|125|Constrict|10|Absorb|20|Mega Drain|40|Vine Whip|45
+Staryu|90|Rapid Spin|20|Water Gun|40|Tackle|50|Bubble Beam|65
+Horsea|90|Bubble|40|Water Gun|40|Twister|40|Bubble Beam|65
 Fim
 
