@@ -56,7 +56,7 @@ public class Mapa {
 	}
 	public boolean temPokemonNoMato(Treinador t){
 		if (posicaoAnterior == 1){
-			if(Math.random() >= 0.6){
+			if(Math.random() >= 0.5){
 				//Chance de ter um pokemon
 				return true;
 			}

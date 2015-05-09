@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Random;
 import java.util.Scanner;
-
 public class Aventura {
 	static private Pokemon[] listaPokemons = new Pokemon[50];
 	static private Pokemon[] listaWild = new Pokemon[25];
