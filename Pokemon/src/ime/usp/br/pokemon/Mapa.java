@@ -42,13 +42,13 @@ public class Mapa {
 	}
 	public void atualizarTreinadorMapa(Treinador t){ 
 		if((t.getAlturaAnterior() != t.getAltura()) || (t.getLarguraAnterior() != t.getLargura())){
-			System.out.println("("+t.getAlturaAnterior()+","+t.getLarguraAnterior()+")" +" -----> "+"(" +t.getAltura()+","+t.getLargura()+")" );
+			System.out.println("("+(t.getAlturaAnterior() + 1)+","+(t.getLarguraAnterior()+ 1)+")" +" -----> "+"(" +(t.getAltura()+ 1)+","+(t.getLargura()+ 1)+")" );
 			m[t.getAlturaAnterior()][t.getLarguraAnterior()] = posicaoAnterior;
 			if(m[t.getAltura()][t.getLargura()] == 1){
-				System.out.println("Posicao Atual: Mato");
+				System.out.println("Current Position: Grass");
 			}
 			else{
-				System.out.println("Posicao Atual: Chao");
+				System.out.println("Current Position: Ground");
 			}
 		}
 		posicaoAnterior = m[t.getAltura()][t.getLargura()];
